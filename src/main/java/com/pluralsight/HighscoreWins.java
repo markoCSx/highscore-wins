@@ -1,7 +1,5 @@
 package com.pluralsight;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class HighscoreWins {
@@ -10,10 +8,13 @@ public class HighscoreWins {
 
     public static void main(String[] args) {
 
+        //Scanner variable
         String userText;
 
+        //Preset score text
         String fullGameScoreText = "Home:Visitor|";
 
+        //Prompts for Home & Visitor scores
         int homeScore;
         System.out.println("Enter Home score: ");
         userText = userInput.nextLine();
@@ -24,13 +25,21 @@ public class HighscoreWins {
         userText = userInput.nextLine();
         visitorScore = Integer.parseInt(userText);
 
+        //Combining
         fullGameScoreText = fullGameScoreText + homeScore + ":" + visitorScore;
         System.out.println(fullGameScoreText);
 
-        //LocalDate day = LocalDate.parse(userText);
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("");
+        //Determining winner
+        if (homeScore > visitorScore) {
+            System.out.println("Winner: " + homeScore);
+        } else if (visitorScore > homeScore) {
+            System.out.println("Winner: " + visitorScore);
+        } else {
+            System.out.println("TIE");
+        }
 
+        //Scanner Close
+        userInput.close();
     }
-
 
 }
